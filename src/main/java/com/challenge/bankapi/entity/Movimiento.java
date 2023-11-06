@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -22,8 +22,8 @@ public class Movimiento implements Serializable {
     @Column(name = "id_cuenta", nullable = false)
     private Integer idCuenta;
 
-    @Column(name = "fecha")
-    private LocalDate fecha;
+    @Column(name = "fecha", updatable = false, nullable = false)
+    private LocalDateTime fecha;
 
     @Column(name = "tipo")
     private String tipo;

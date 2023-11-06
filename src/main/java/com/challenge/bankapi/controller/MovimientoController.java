@@ -1,6 +1,8 @@
 package com.challenge.bankapi.controller;
 
 import com.challenge.bankapi.dto.MovimientoDTO;
+import com.challenge.bankapi.exception.CupoDiarioExcedidoException;
+import com.challenge.bankapi.exception.SaldoNoDisponibleException;
 import com.challenge.bankapi.service.MovimientoService;
 import com.challenge.bankapi.vo.MovimientoQueryVO;
 import com.challenge.bankapi.vo.MovimientoUpdateVO;
@@ -21,7 +23,7 @@ public class MovimientoController {
     private MovimientoService movimientoService;
 
     @PostMapping
-    public String save(@Valid @RequestBody MovimientoVO vO) {
+    public String save(@Valid @RequestBody MovimientoVO vO) throws SaldoNoDisponibleException, CupoDiarioExcedidoException {
         return movimientoService.save(vO).toString();
     }
 

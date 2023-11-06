@@ -22,6 +22,7 @@ public class CuentaService {
     public Integer save(CuentaVO vO) {
         Cuenta bean = new Cuenta();
         BeanUtils.copyProperties(vO, bean);
+        bean.setSaldo(vO.getSaldoInicial());
         bean = cuentaRepository.save(bean);
         return bean.getId();
     }

@@ -30,6 +30,9 @@ public class Cuenta implements Serializable {
     @Column(name = "saldo_inicial", nullable = false)
     private BigDecimal saldoInicial;
 
+    @Column(name = "saldo", nullable = false)
+    private BigDecimal saldo;
+
     @Column(name = "estado")
     private Integer estado;
 
