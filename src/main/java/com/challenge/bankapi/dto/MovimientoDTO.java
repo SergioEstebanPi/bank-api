@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class MovimientoDTO implements Serializable {
@@ -14,7 +14,7 @@ public class MovimientoDTO implements Serializable {
 
     private Integer idCuenta;
 
-    private LocalDate fecha;
+    private LocalDateTime fecha;
 
     private String tipo;
 
