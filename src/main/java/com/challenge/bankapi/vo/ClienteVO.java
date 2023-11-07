@@ -11,9 +11,6 @@ import java.time.LocalDate;
 public class ClienteVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "id can not null")
-    private Integer id;
-
     @NotNull(message = "dni can not null")
     private Integer dni;
 

@@ -9,6 +9,7 @@ import com.challenge.bankapi.vo.ClienteVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -42,7 +43,7 @@ public class ClienteService {
     }
 
     public Page<ClienteDTO> query(ClienteQueryVO vO) {
-        throw new UnsupportedOperationException();
+        return new PageImpl(clienteRepository.findAll());
     }
 
     private ClienteDTO toDTO(Cliente original) {

@@ -15,6 +15,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -71,7 +72,7 @@ public class MovimientoService {
     }
 
     public Page<MovimientoDTO> query(MovimientoQueryVO vO) {
-        throw new UnsupportedOperationException();
+        return new PageImpl(movimientoRepository.findAll());
     }
 
     private MovimientoDTO toDTO(Movimiento original) {

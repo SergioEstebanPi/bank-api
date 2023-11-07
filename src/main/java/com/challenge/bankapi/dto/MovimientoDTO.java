@@ -12,7 +12,7 @@ public class MovimientoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
 
-    private Integer idCuenta;
+    private Integer numeroCuenta;
 
     private LocalDateTime fecha;
 
