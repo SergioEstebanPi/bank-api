@@ -2,8 +2,8 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/devsu
-    username: root
-    password: root
+    username: user
+    password: devsu
   jpa:
     show-sql: true
     hibernate:
