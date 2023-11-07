@@ -11,9 +11,6 @@ import java.math.BigDecimal;
 public class MovimientoVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "id can not null")
-    private Integer id;
-
     @NotNull(message = "idCuenta can not null")
     private Integer idCuenta;
 

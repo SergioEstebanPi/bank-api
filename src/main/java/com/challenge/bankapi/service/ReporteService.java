@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,7 +35,7 @@ public class ReporteService {
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public Page<ReporteDTO> query(ReporteQueryVO vO, Pageable pageable) {
+    public Page<ReporteDTO> query(ReporteQueryVO vO, Pageable pageable) throws Exception {
         Integer dni = vO.getDni();
         Cliente cliente = clienteRepository.findByDni(dni)
             .orElseThrow(() -> new NoSuchElementException("Resource not found: " + dni));
@@ -45,17 +45,38 @@ public class ReporteService {
                 .map(cuenta -> cuenta.getId())
                 .collect(Collectors.toSet());
 
-        LocalDateTime fechaInicial = LocalDate.parse(vO.getFechaInicial(), DATE_FORMATTER).atTime(LocalTime.MIN);
-        LocalDateTime fechaFinal = LocalDate.parse(vO.getFechaFinal(), DATE_FORMATTER).atTime(LocalTime.MAX);
+        try {
+            LocalDateTime fechaInicial = LocalDate.parse(vO.getFechaInicial(), DATE_FORMATTER).atTime(LocalTime.MIN);
+            LocalDateTime fechaFinal = LocalDate.parse(vO.getFechaFinal(), DATE_FORMATTER).atTime(LocalTime.MAX);
 
-        return new PageImpl<>(movimientoRepository.findByIdCuentaInAndFechaBetween(cuentasIds,
-                fechaInicial, fechaFinal, pageable).stream()
-                .map(movimiento -> toReporteDTO(cliente,
-                        cuentas.stream()
-                                .filter(cuenta -> cuenta.getId().equals(movimiento.getIdCuenta()))
-                                .findFirst().get(),
-                        movimiento))
-                .collect(Collectors.toList()));
+            return new PageImpl<>(movimientoRepository.findByIdCuentaInAndFechaBetween(cuentasIds,
+                            fechaInicial, fechaFinal, pageable).stream()
+                    .map(movimiento -> toReporteDTO(cliente,
+                            cuentas.stream()
+                                    .filter(cuenta -> cuenta.getId().equals(movimiento.getIdCuenta()))
+                                    .findFirst().get(),
+                            movimiento))
+                    .collect(Collectors.toList()));
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public byte[] queryBase64(ReporteQueryVO vO, Pageable pageable) throws Exception {
+        /*
+        ReporteDTO reporteDTO = new ReporteDTO();
+        reporteDTO.setDni(1234);
+        reporteDTO.setEstado(1);
+        reporteDTO.setSaldoInicial(BigDecimal.TEN);
+
+        List<ReporteDTO> datosReporte = new ArrayList<>();
+        datosReporte.add(reporteDTO);
+         */
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        new ObjectOutputStream(baos).writeObject(query(vO, pageable).getContent());
+
+        return Base64.getEncoder().encode(baos.toByteArray());
     }
 
     private ReporteDTO toReporteDTO(Cliente cliente, Cuenta cuenta, Movimiento movimiento) {

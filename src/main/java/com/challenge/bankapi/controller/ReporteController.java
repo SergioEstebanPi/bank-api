@@ -12,6 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @Validated
 @RestController
 @RequestMapping("/reporte")
@@ -23,10 +25,21 @@ public class ReporteController {
     @GetMapping
     public Page<ReporteDTO> query(@Valid ReporteQueryVO vO,
                                   @RequestParam(value = "page", defaultValue = "0") int page,
-                                  @RequestParam(value = "size", defaultValue = "10") int size) {
+                                  @RequestParam(value = "size", defaultValue = "10") int size) throws Exception {
         Pageable pageable = PageRequest.of(page, size,
                 Sort.by("idCuenta").ascending()
                         .and(Sort.by("fecha").descending()));
         return reporteService.query(vO, pageable);
+    }
+
+    @GetMapping(value = "/pdf")
+    public byte[] queryBase64(@Valid ReporteQueryVO vO,
+                                  @RequestParam(value = "page", defaultValue = "0") int page,
+                                  @RequestParam(value = "size", defaultValue = "10") int size)
+            throws Exception {
+        Pageable pageable = PageRequest.of(page, size,
+                Sort.by("idCuenta").ascending()
+                        .and(Sort.by("fecha").descending()));
+        return reporteService.queryBase64(vO, pageable);
     }
 }

@@ -1,6 +1,7 @@
 package com.challenge.bankapi.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,8 +13,9 @@ public class MovimientoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
 
-    private Integer numeroCuenta;
+    private String numeroCuenta;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime fecha;
 
     private String tipo;

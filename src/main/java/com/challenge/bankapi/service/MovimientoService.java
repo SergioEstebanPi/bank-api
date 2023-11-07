@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 public class MovimientoService {
@@ -72,7 +73,15 @@ public class MovimientoService {
     }
 
     public Page<MovimientoDTO> query(MovimientoQueryVO vO) {
-        return new PageImpl(movimientoRepository.findAll());
+        return new PageImpl(movimientoRepository.findAll().stream()
+                .map(movimiento -> {
+                    String numeroCuenta = cuentaRepository.findById(movimiento.getIdCuenta())
+                            .get()
+                            .getNumero();
+                    MovimientoDTO movimientoDTO = toDTO(movimiento);
+                    movimientoDTO.setNumeroCuenta(numeroCuenta);
+                    return movimientoDTO;
+                }).collect(Collectors.toList()));
     }
 
     private MovimientoDTO toDTO(Movimiento original) {
