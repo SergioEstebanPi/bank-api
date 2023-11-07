@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/movimiento")
+@CrossOrigin(origins = "*")
 public class MovimientoController {
 
     @Autowired

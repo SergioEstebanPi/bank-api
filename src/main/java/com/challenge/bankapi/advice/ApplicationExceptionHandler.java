@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class ApplicationExceptionHandler {
@@ -24,7 +25,8 @@ public class ApplicationExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({SaldoNoDisponibleException.class, CupoDiarioExcedidoException.class})
+    @ExceptionHandler({SaldoNoDisponibleException.class,
+            CupoDiarioExcedidoException.class, NoSuchElementException.class})
     public Map<String, String> handleBusinessException(Exception ex){
         Map<String, String> errorMap = new HashMap<>();
         errorMap.put("errorMessage", ex.getMessage());

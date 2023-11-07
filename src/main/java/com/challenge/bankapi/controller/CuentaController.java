@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/cuenta")
+@CrossOrigin(origins = "*")
 public class CuentaController {
 
     @Autowired

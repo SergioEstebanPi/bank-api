@@ -36,13 +36,13 @@ public class MovimientoService {
     @Transactional
     public Integer save(MovimientoVO vO) throws SaldoNoDisponibleException, CupoDiarioExcedidoException {
         Cuenta cuenta = cuentaRepository.findById(vO.getIdCuenta())
-                .orElseThrow(() -> new NoSuchElementException("Resource not found: " + vO.getIdCuenta()));
+                .orElseThrow(() -> new NoSuchElementException("Cuenta no encontrada: " + vO.getIdCuenta()));
 
         BigDecimal valor = vO.getValor();
         validateSaldoMinimo(valor, cuenta.getSaldo());
         validateCupoDiarioExcedido(valor, cuenta.getId());
 
-        String tipo = (valor.compareTo(BigDecimal.ZERO) < 0 ? "Retiro de " : "Deposito de ") + valor;
+        String tipo = (valor.compareTo(BigDecimal.ZERO) < 0 ? "Retiro de " : "Deposito de ") + valor.abs();
         BigDecimal nuevoSaldo = cuenta.getSaldo().add(valor);
 
         Movimiento bean = new Movimiento();
@@ -92,7 +92,7 @@ public class MovimientoService {
 
     private Movimiento requireOne(Integer id) {
         return movimientoRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Movimiento no encontrado: " + id));
     }
 
     public void validateSaldoMinimo(BigDecimal valor, BigDecimal saldo) throws SaldoNoDisponibleException {

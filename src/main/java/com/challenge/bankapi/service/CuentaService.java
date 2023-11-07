@@ -2,6 +2,7 @@ package com.challenge.bankapi.service;
 
 import com.challenge.bankapi.entity.Cuenta;
 import com.challenge.bankapi.dto.CuentaDTO;
+import com.challenge.bankapi.repository.ClienteRepository;
 import com.challenge.bankapi.repository.CuentaRepository;
 import com.challenge.bankapi.vo.CuentaQueryVO;
 import com.challenge.bankapi.vo.CuentaUpdateVO;
@@ -20,9 +21,15 @@ public class CuentaService {
     @Autowired
     private CuentaRepository cuentaRepository;
 
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     public Integer save(CuentaVO vO) {
+        clienteRepository.findById(vO.getIdCliente())
+                .orElseThrow(() -> new NoSuchElementException("Cliente no encontrado: " + vO.getIdCliente()));
         Cuenta bean = new Cuenta();
         BeanUtils.copyProperties(vO, bean);
+        bean.setEstado(1);
         bean.setSaldo(vO.getSaldoInicial());
         bean = cuentaRepository.save(bean);
         return bean.getId();
@@ -55,6 +62,6 @@ public class CuentaService {
 
     private Cuenta requireOne(Integer id) {
         return cuentaRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Cuenta no encontrada: " + id));
     }
 }

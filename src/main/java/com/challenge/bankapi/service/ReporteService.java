@@ -38,7 +38,7 @@ public class ReporteService {
     public Page<ReporteDTO> query(ReporteQueryVO vO, Pageable pageable) throws Exception {
         Integer dni = vO.getDni();
         Cliente cliente = clienteRepository.findByDni(dni)
-            .orElseThrow(() -> new NoSuchElementException("Resource not found: " + dni));
+            .orElseThrow(() -> new NoSuchElementException("Cliente no encontrado: " + dni));
 
         List<Cuenta> cuentas = cuentaRepository.findByIdCliente(cliente.getId());
         Set<Integer> cuentasIds = cuentas.stream()

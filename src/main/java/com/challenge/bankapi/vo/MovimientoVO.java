@@ -14,8 +14,6 @@ public class MovimientoVO implements Serializable {
     @NotNull(message = "idCuenta can not null")
     private Integer idCuenta;
 
-    private String tipo;
-
     @NotNull(message = "valor can not null")
     private BigDecimal valor;
 

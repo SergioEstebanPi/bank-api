@@ -54,6 +54,6 @@ public class ClienteService {
 
     private Cliente requireOne(Integer id) {
         return clienteRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Cliente no encontrado: : " + id));
     }
 }
