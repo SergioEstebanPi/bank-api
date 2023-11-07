@@ -1,0 +1,1086 @@
+{
+	"info": {
+		"_postman_id": "7796be66-6a60-4035-b97f-b8da03d15fcc",
+		"name": "bank-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28422949"
+	},
+	"item": [
+		{
+			"name": "cuenta",
+			"item": [
+				{
+					"name": "localhost:8080/cuenta/1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cuenta/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cuenta",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cuenta/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cuenta/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cuenta",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"idCliente\": 1,\n    \"numero\": \"478758\",\n    \"tipo\": \"Ahorro\",\n    \"saldoInicial\": 2000.00,\n    \"estado\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cuenta",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cuenta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"idCliente\": 1,\n    \"numero\": \"478758\",\n    \"tipo\": \"Ahorro\",\n    \"saldoInicial\": 2000.00,\n    \"estado\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cuenta",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cuenta"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"idCliente\": 1,\n    \"numero\": \"478758\",\n    \"tipo\": \"Ahorro\",\n    \"saldoInicial\": 2000.00,\n    \"estado\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cuenta",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cuenta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"idCliente\": 1,\n    \"numero\": \"478758\",\n    \"tipo\": \"Ahorro\",\n    \"saldoInicial\": 2000.00,\n    \"estado\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cuenta",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cuenta"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cuenta/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cuenta/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cuenta",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cuenta/1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cuenta/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cuenta",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "localhost:8080/cliente/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cliente/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/cliente/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cliente",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cliente/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/cliente/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cliente",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"dni\": 1,\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"M\",\n    \"nacimiento\": \"1990-08-10\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"contrasena\": \"1234\",\n    \"estado\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cliente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"dni\": 1,\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"M\",\n    \"nacimiento\": \"1990-08-10\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"contrasena\": \"1234\",\n    \"estado\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cliente",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cliente"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"dni\": 1,\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"M\",\n    \"nacimiento\": \"1990-08-10\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"contrasena\": \"1234\",\n    \"estado\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cliente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"dni\": 1,\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"M\",\n    \"nacimiento\": \"1990-08-10\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"contrasena\": \"1234\",\n    \"estado\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cliente",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cliente"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/cliente/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/cliente/1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/cliente/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cliente",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "movimiento",
+			"item": [
+				{
+					"name": "localhost:8080/movimiento/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movimiento/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/movimiento/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movimiento/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movimiento",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movimiento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/movimiento",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movimiento",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movimiento"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCuenta\": 1,\n    \"valor\": -575.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movimiento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/movimiento",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 5,\n    \"idCuenta\": 1,\n    \"valor\": -575.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/movimiento",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movimiento"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/movimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"idCuenta\": 1,\n    \"fecha\": \"2023-11-03\",\n    \"tipo\": \"Retiro de 575\",\n    \"valor\": -575.00,\n    \"saldo\": 1425.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movimiento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/movimiento",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"idCuenta\": 1,\n    \"fecha\": \"2023-11-03\",\n    \"tipo\": \"Retiro de 575\",\n    \"valor\": -575.00,\n    \"saldo\": 1425.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/movimiento",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movimiento"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/movimiento/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movimiento/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/movimiento/1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movimiento/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movimiento",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movimiento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCuenta\": 1,\n    \"valor\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movimiento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reporte",
+			"item": [
+				{
+					"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "dni",
+									"value": "1"
+								},
+								{
+									"key": "fechaInicial",
+									"value": "2023-10-01"
+								},
+								{
+									"key": "fechaFinal",
+									"value": "2023-12-01"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reporte"
+									],
+									"query": [
+										{
+											"key": "dni",
+											"value": "1"
+										},
+										{
+											"key": "fechaInicial",
+											"value": "2023-10-01"
+										},
+										{
+											"key": "fechaFinal",
+											"value": "2023-12-01"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reporte"
+									],
+									"query": [
+										{
+											"key": "dni",
+											"value": "1"
+										},
+										{
+											"key": "fechaInicial",
+											"value": "2023-10-01"
+										},
+										{
+											"key": "fechaFinal",
+											"value": "2023-12-01"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/reporte/pdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reporte/pdf?dni=1&fechaInicial=2023-11-01&fechaFinal=2023-11-31",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reporte",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "dni",
+									"value": "1"
+								},
+								{
+									"key": "fechaInicial",
+									"value": "2023-11-01"
+								},
+								{
+									"key": "fechaFinal",
+									"value": "2023-11-31"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reporte"
+									],
+									"query": [
+										{
+											"key": "dni",
+											"value": "1"
+										},
+										{
+											"key": "fechaInicial",
+											"value": "2023-10-01"
+										},
+										{
+											"key": "fechaFinal",
+											"value": "2023-12-01"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reporte"
+									],
+									"query": [
+										{
+											"key": "dni",
+											"value": "1"
+										},
+										{
+											"key": "fechaInicial",
+											"value": "2023-10-01"
+										},
+										{
+											"key": "fechaFinal",
+											"value": "2023-12-01"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01&page=0&size=10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01&page=0&size=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "dni",
+									"value": "1"
+								},
+								{
+									"key": "fechaInicial",
+									"value": "2023-10-01"
+								},
+								{
+									"key": "fechaFinal",
+									"value": "2023-12-01"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01&page=0&size=10",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/reporte?dni=1&fechaInicial=2023-10-01&fechaFinal=2023-12-01&page=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reporte"
+									],
+									"query": [
+										{
+											"key": "dni",
+											"value": "1"
+										},
+										{
+											"key": "fechaInicial",
+											"value": "2023-10-01"
+										},
+										{
+											"key": "fechaFinal",
+											"value": "2023-12-01"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
