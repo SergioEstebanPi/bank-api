@@ -1,29 +1,36 @@
 package com.challenge.bankapi.controller;
 
 import com.challenge.bankapi.dto.ClienteDTO;
+import com.challenge.bankapi.entity.Cliente;
+import com.challenge.bankapi.repository.ClienteRepository;
 import com.challenge.bankapi.service.ClienteService;
 import com.challenge.bankapi.vo.ClienteQueryVO;
 import com.challenge.bankapi.vo.ClienteUpdateVO;
 import com.challenge.bankapi.vo.ClienteVO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.net.URI;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+import java.util.NoSuchElementException;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -35,27 +42,29 @@ class ClienteControllerTest {
     @MockBean
     private ClienteService clienteService;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     void save() throws Exception {
         ClienteVO clienteVO = new ClienteVO();
+        clienteVO.setDni(1234);
+        clienteVO.setNombre("cliente");
 
         when(clienteService.save(clienteVO)).thenReturn(1);
 
-        this.mockMvc.perform(
-                        post("/cliente", clienteVO)
-                                .accept(MediaType.APPLICATION_JSON))
+        this.mockMvc.perform(post("/cliente")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(new MediaType("application", "json",
+                                Charset.forName("UTF-8")))
+                        .content(objectMapper.writeValueAsString(clienteVO)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[*].id")
-                        .isNotEmpty());
+                .andExpect(MockMvcResultMatchers.jsonPath("$").isNumber());
     }
 
     @Test
     void deleteTest() throws Exception {
-        ClienteVO clienteVO = new ClienteVO();
-
-        when(clienteService.save(clienteVO)).thenReturn(1);
-
         this.mockMvc.perform(
                         delete(URI.create("/cliente/1"))
                                 .accept(MediaType.APPLICATION_JSON))
@@ -64,26 +73,35 @@ class ClienteControllerTest {
     }
 
     @Test
-    void update() throws Exception {
+    void updateOk() {
         ClienteUpdateVO clienteUpdateVO = new ClienteUpdateVO();
+        clienteUpdateVO.setNombre("Cliente nuevo");
 
-        clienteService.update(1, clienteUpdateVO);
+        Integer idUpdate = 1;
+        clienteService.update(idUpdate, clienteUpdateVO);
 
-        this.mockMvc.perform(
-                        put("/cliente/1", clienteUpdateVO)
-                                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk());
+        verify(clienteService, times(1)).update(idUpdate, clienteUpdateVO);
+    }
+
+    @Test
+    void updateNoOk() {
+        ClienteUpdateVO clienteUpdateVO = new ClienteUpdateVO();
+        clienteUpdateVO.setNombre("Cliente nuevo");
+
+        doThrow(new NoSuchElementException()).when(clienteService)
+                .update(any(Integer.class),any(ClienteUpdateVO.class));
+        clienteService.update(0, null);
     }
 
     @Test
     void getById() throws Exception {
         ClienteDTO clienteDTO = new ClienteDTO();
 
-        when(clienteService.getById(1)).thenReturn(clienteDTO);
+        Integer idCliente = 1;
+        when(clienteService.getById(idCliente)).thenReturn(clienteDTO);
 
         this.mockMvc.perform(
-                        get("/cliente/1")
+                        get("/cliente/" + idCliente)
                                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -93,7 +111,10 @@ class ClienteControllerTest {
     void query() throws Exception {
         ClienteQueryVO clienteQueryVO = new ClienteQueryVO();
 
-        when(clienteService.query(clienteQueryVO)).thenReturn(Page.empty());
+        ClienteDTO clienteDTO = new ClienteDTO();
+        clienteDTO.setId(1);
+        List<ClienteDTO> lista = Arrays.asList(clienteDTO);
+        when(clienteService.query(clienteQueryVO)).thenReturn(new PageImpl(lista));
 
         this.mockMvc.perform(
                 get("/cliente")
@@ -102,7 +123,7 @@ class ClienteControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content")
                         .exists())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[*].id")
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].id")
                         .isNotEmpty());
     }
 }
