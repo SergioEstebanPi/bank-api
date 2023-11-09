@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -61,24 +59,6 @@ public class ReporteService {
             throw new Exception(e.getMessage());
         }
     }
-
-    public byte[] queryBase64(ReporteQueryVO vO, Pageable pageable) throws Exception {
-        /*
-        ReporteDTO reporteDTO = new ReporteDTO();
-        reporteDTO.setDni(1234);
-        reporteDTO.setEstado(1);
-        reporteDTO.setSaldoInicial(BigDecimal.TEN);
-
-        List<ReporteDTO> datosReporte = new ArrayList<>();
-        datosReporte.add(reporteDTO);
-         */
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        new ObjectOutputStream(baos).writeObject(query(vO, pageable).getContent());
-
-        return Base64.getEncoder().encode(baos.toByteArray());
-    }
-
     private ReporteDTO toReporteDTO(Cliente cliente, Cuenta cuenta, Movimiento movimiento) {
         ReporteDTO bean = new ReporteDTO();
         bean.setDni(cliente.getDni());

@@ -23,6 +23,7 @@ public class ClienteService {
     public Integer save(ClienteVO vO) {
         Cliente bean = new Cliente();
         BeanUtils.copyProperties(vO, bean);
+        bean.setEstado(1);
         bean = clienteRepository.save(bean);
         return bean.getId();
     }
