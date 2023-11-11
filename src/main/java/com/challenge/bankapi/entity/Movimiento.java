@@ -15,7 +15,7 @@ public class Movimiento implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -25,13 +25,13 @@ public class Movimiento implements Serializable {
     @Column(name = "fecha", updatable = false, nullable = false)
     private LocalDateTime fecha;
 
-    @Column(name = "tipo")
+    @Column(name = "tipo", length = 80, nullable = false)
     private String tipo;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor", nullable = false, precision = 5, scale = 2)
     private BigDecimal valor;
 
-    @Column(name = "saldo", nullable = false)
+    @Column(name = "saldo", nullable = false, precision = 5, scale = 2)
     private BigDecimal saldo;
 
 }
